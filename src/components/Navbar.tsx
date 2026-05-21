@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useState } from "react";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { navLinks } from "@/lib/data";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -15,18 +16,11 @@ export function Navbar() {
     <>
       <header className="fixed inset-x-0 top-0 z-40 flex justify-center px-4 pt-5 md:px-6">
         <nav className="liquid-glass flex w-full max-w-4xl items-center justify-between gap-3 rounded-full px-4 py-2.5 md:px-5">
-          <Link
-            href="#accueil"
-            className="flex flex-col leading-none"
+          <BrandLogo
+            variant="nav"
+            priority
             onClick={() => setOpen(false)}
-          >
-            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-warm-gray">
-              Marbella
-            </span>
-            <span className="text-lg font-semibold tracking-tight text-charcoal">
-              Delice
-            </span>
-          </Link>
+          />
 
           <ul className="hidden items-center gap-6 lg:gap-7 md:flex">
             {navLinks.slice(1, 5).map((link) => (

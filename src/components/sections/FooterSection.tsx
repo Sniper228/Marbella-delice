@@ -13,6 +13,7 @@ import {
   Phone,
   WhatsappLogo,
 } from "@phosphor-icons/react";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { contactInfo, MAPS_URL, navLinks, WHATSAPP_URL } from "@/lib/data";
 
 const explorerLinks = [
@@ -114,13 +115,8 @@ export function FooterSection() {
       <div className="relative z-10 mx-auto max-w-[1100px] px-5 py-11 md:px-8 md:py-12 lg:py-14">
         <div className="grid grid-cols-1 gap-9 md:grid-cols-3 md:gap-7 lg:gap-9">
           <div>
-            <span className="footer-accent text-[10px] font-medium uppercase tracking-[0.32em]">
-              Marbella
-            </span>
-            <p className="mt-0.5 text-[1.85rem] font-semibold leading-none tracking-tight md:text-[2rem]">
-              Delice
-            </p>
-            <p className="footer-muted mt-3 text-[13px] font-medium">
+            <BrandLogo variant="footer" linkToHome />
+            <p className="footer-muted mt-4 text-[13px] font-medium">
               Fraîcheur · Gourmandise · Élégance
             </p>
             <p className="footer-muted mt-2 text-[13px] italic leading-relaxed opacity-80">

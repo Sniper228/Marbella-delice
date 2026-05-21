@@ -1,4 +1,5 @@
 export const brandImages = {
+  logo: "/images/Logo.png",
   hero: "/images/image_6.jpg",
   about: {
     main: "/images/image_3.jpg",
