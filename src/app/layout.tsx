@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeScript } from "@/components/theme/ThemeScript";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -33,10 +35,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${outfit.variable} scroll-smooth`}>
-      <body className="min-h-[100dvh] antialiased">
-        <div className="grain-overlay" aria-hidden />
-        {children}
+    <html lang="fr" className={`${outfit.variable} scroll-smooth`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body className="min-h-[100dvh] bg-cream text-charcoal antialiased transition-colors duration-500">
+        <ThemeProvider>
+          <div className="grain-overlay" aria-hidden />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

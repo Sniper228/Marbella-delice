@@ -15,7 +15,7 @@ export function ProductsSection() {
       <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 lg:px-12">
         <Reveal className="mb-14 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
-            <span className="mb-4 inline-block rounded-full bg-mango/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#c47a2e]">
+            <span className="mb-4 inline-block rounded-full bg-mango/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-mango dark:text-peach">
               Collection
             </span>
             <h2 className="text-3xl font-semibold tracking-tighter text-charcoal md:text-5xl">
@@ -60,7 +60,7 @@ export function ProductsSection() {
                           className="object-cover transition-transform duration-[800ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.05]"
                           sizes="(max-width: 640px) 100vw, 50vw"
                         />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-white/10" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/25 via-transparent to-cream/10 dark:to-charcoal/20" />
                       </div>
                     </div>
 

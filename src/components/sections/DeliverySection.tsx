@@ -25,7 +25,7 @@ export function DeliverySection() {
       <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <span className="mb-4 inline-block rounded-full bg-mango/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#c47a2e]">
+            <span className="mb-4 inline-block rounded-full bg-mango/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-mango dark:text-peach">
               Livraison
             </span>
             <h2 className="text-3xl font-semibold tracking-tighter text-charcoal md:text-5xl">

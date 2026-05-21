@@ -83,7 +83,7 @@ export function GallerySection() {
       id="galerie"
       className="relative scroll-mt-28 overflow-hidden pt-32 pb-24 md:scroll-mt-32 md:pt-44 md:pb-40"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-peach/15 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-peach/15 to-transparent dark:from-peach/5" />
 
       <div className="relative mx-auto max-w-[1200px] px-4 md:px-8 lg:px-10">
         <Reveal className="mb-12 max-w-2xl md:mb-14">

@@ -22,7 +22,7 @@ export function QualitySection() {
     <section id="qualite" className="relative py-24 md:py-40">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 lg:px-12">
         <Reveal className="mx-auto mb-20 max-w-2xl text-center">
-          <span className="mb-4 inline-block rounded-full bg-fresh-blue/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#4a8fa8]">
+          <span className="mb-4 inline-block rounded-full bg-fresh-blue/20 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-fresh-blue dark:text-peach">
             Fraicheur et qualite
           </span>
           <h2 className="text-3xl font-semibold tracking-tighter text-charcoal md:text-5xl">
@@ -59,7 +59,7 @@ export function QualitySection() {
 
         <Reveal>
           <div className="double-bezel-outer">
-            <div className="double-bezel-inner grid gap-8 rounded-[calc(2rem-6px)] bg-gradient-to-br from-white/80 via-cream to-peach/20 p-8 md:grid-cols-2 md:gap-12 md:p-12 lg:grid-cols-4">
+            <div className="double-bezel-inner grid gap-8 rounded-[calc(2rem-6px)] bg-gradient-to-br from-cream-deep/80 via-cream to-peach/20 p-8 dark:from-chocolate/60 dark:via-cream-deep dark:to-peach/10 md:grid-cols-2 md:gap-12 md:p-12 lg:grid-cols-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center md:text-left">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />

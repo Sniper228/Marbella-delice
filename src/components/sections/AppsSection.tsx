@@ -9,7 +9,7 @@ import { digitalApps } from "@/lib/data";
 export function AppsSection() {
   return (
     <section id="apps" className="relative overflow-hidden py-24 md:py-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-cream to-cream" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream-deep/50 via-cream to-cream dark:from-chocolate/40" />
 
       <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 lg:px-12">
         <Reveal className="mb-14 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">

@@ -28,7 +28,7 @@ function ButtonInner({
 }) {
   const base =
     variant === "primary"
-      ? "bg-charcoal text-cream shadow-[0_20px_40px_-12px_rgba(42,36,32,0.35)]"
+      ? "bg-charcoal text-cream shadow-[0_20px_40px_-12px_rgba(42,36,32,0.35)] dark:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.45)]"
       : "liquid-glass text-charcoal";
 
   return (
@@ -39,7 +39,7 @@ function ButtonInner({
       <span>{children}</span>
       <span
         className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-105 ${
-          variant === "primary" ? "bg-white/15" : "bg-charcoal/5"
+          variant === "primary" ? "bg-white/15 dark:bg-charcoal/15" : "bg-charcoal/5 dark:bg-white/10"
         }`}
       >
         <ArrowUpRight size={16} weight="light" />

@@ -30,7 +30,7 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 70, damping: 20, delay: 0.1 }}
         >
-          <span className="mb-5 inline-flex w-fit items-center rounded-full border border-white/60 bg-white/40 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.22em] text-warm-gray backdrop-blur-sm">
+          <span className="mb-5 inline-flex w-fit items-center rounded-full border border-charcoal/10 bg-cream-deep/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.22em] text-warm-gray backdrop-blur-sm dark:border-white/15 dark:bg-white/5">
             Yaourt fruité artisanal
           </span>
 
@@ -57,7 +57,7 @@ export function HeroSection() {
             </MagneticButton>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-6 border-t border-charcoal/8 pt-7 md:mt-12 md:gap-8 md:pt-8">
+          <div className="mt-10 flex flex-wrap gap-6 border-t border-charcoal/8 pt-7 transition-colors duration-500 dark:border-white/10 md:mt-12 md:gap-8 md:pt-8">
             <div>
               <p className="font-mono text-2xl font-medium tracking-tight text-charcoal">
                 7+
@@ -90,7 +90,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-6 overflow-hidden border-y border-charcoal/5 bg-white/30 py-4 backdrop-blur-sm md:mt-10">
+      <div
+        className="relative z-10 mt-6 overflow-hidden border-y border-charcoal/5 py-4 backdrop-blur-sm md:mt-10 dark:border-white/10"
+        style={{ background: "var(--marquee-bg)" }}
+      >
         <div className="flex animate-marquee whitespace-nowrap">
           {[...marqueeWords, ...marqueeWords].map((word, i) => (
             <span
