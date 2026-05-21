@@ -63,10 +63,10 @@ export const products = [
 ];
 
 export const stats = [
-  { value: 2847, suffix: "+", label: "Clients satisfaits" },
-  { value: 12400, suffix: "+", label: "Commandes livrees" },
+  { value: 453, suffix: "+", label: "Clients satisfaits" },
+  { value: 2103, suffix: "+", label: "Commandes livrees" },
   { value: 7, suffix: "+", label: "Saveurs disponibles" },
-  { value: 98, suffix: "%", label: "Livraisons a l'heure" },
+  { value: 95, suffix: "%", label: "Livraisons a l'heure" },
 ];
 
 export const qualityPillars = [
