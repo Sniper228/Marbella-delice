@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --cream: #fdf8f3;
+  --cream-deep: #f5ebe0;
+  --strawberry: #f4a4b8;
+  --strawberry-deep: #e87a96;
+  --mango: #f5a962;
+  --peach: #ffd4a8;
+  --berry: #9b6dd7;
+  --berry-soft: #c4a8e8;
+  --fresh-blue: #7ec8e3;
+  --charcoal: #2a2420;
+  --warm-gray: #6b5f57;
+  --chocolate: #3a322c;
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --bezel-outer: rgba(255, 255, 255, 0.4);
+  --bezel-ring: rgba(42, 36, 32, 0.06);
+  --footer-bg: #3a322c;
+  --footer-fg: #fdf8f3;
+  --footer-muted: #f5ebe0;
+  --footer-accent: #ffd4a8;
+  --shadow-soft: rgba(42, 36, 32, 0.08);
+  --marquee-bg: rgba(255, 255, 255, 0.3);
+}
+
+.dark {
+  --cream: #12100e;
+  --cream-deep: #1c1815;
+  --strawberry: #e892a8;
+  --strawberry-deep: #f4a4b8;
+  --mango: #e8a855;
+  --peach: #e8c49a;
+  --berry: #b08de0;
+  --berry-soft: #9b7cc8;
+  --fresh-blue: #6eb8d4;
+  --charcoal: #f5ebe0;
+  --warm-gray: #a3988d;
+  --chocolate: #0a0908;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --bezel-outer: rgba(255, 255, 255, 0.05);
+  --bezel-ring: rgba(255, 255, 255, 0.08);
+  --footer-bg: #070605;
+  --footer-fg: #f5ebe0;
+  --footer-muted: #a3988d;
+  --footer-accent: #e8c49a;
+  --shadow-soft: rgba(0, 0, 0, 0.35);
+  --marquee-bg: rgba(255, 255, 255, 0.04);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-strawberry: var(--strawberry);
+  --color-strawberry-deep: var(--strawberry-deep);
+  --color-mango: var(--mango);
+  --color-peach: var(--peach);
+  --color-berry: var(--berry);
+  --color-berry-soft: var(--berry-soft);
+  --color-fresh-blue: var(--fresh-blue);
+  --color-charcoal: var(--charcoal);
+  --color-warm-gray: var(--warm-gray);
+  --color-chocolate: var(--chocolate);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-outfit);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  transition:
+    background-color 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+    color 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--strawberry) 35%, transparent);
+  color: var(--charcoal);
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .grain-overlay {
+  opacity: 0.04;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.liquid-glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 50px -20px var(--shadow-soft);
+  transition:
+    background 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+    border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+    box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.double-bezel-outer {
+  padding: 6px;
+  border-radius: 2rem;
+  background: var(--bezel-outer);
+  box-shadow: 0 0 0 1px var(--bezel-ring);
+  transition: background 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.double-bezel-inner {
+  border-radius: calc(2rem - 6px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.gradient-text-fruit {
+  background: linear-gradient(
+    135deg,
+    var(--strawberry-deep) 0%,
+    var(--mango) 45%,
+    var(--berry) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-surface {
+  background: var(--footer-bg);
+  color: var(--footer-fg);
+}
+
+.footer-muted {
+  color: color-mix(in srgb, var(--footer-fg) 75%, transparent);
+}
+
+.footer-accent {
+  color: var(--footer-accent);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
