@@ -132,11 +132,11 @@ export const digitalApps = [
     tag: "Logistique",
     description:
       "Plateforme logistique intelligente permettant la gestion moderne des livraisons et operations terrain.",
-    href: "#",
+    href: "https://loban-africa.com/",
+    image: "/images/Loban.png",
     accent: "from-fresh-blue/30 via-cream to-cream",
     glow: "rgba(126,200,227,0.35)",
     badgeClass: "bg-fresh-blue/20 text-[#4a8fa8]",
-    mockupVariant: "logistics" as const,
   },
   {
     id: "sheloa",
@@ -144,11 +144,11 @@ export const digitalApps = [
     tag: "Sante digitale",
     description:
       "Carnet de vaccination numerique moderne pour suivre le calendrier vaccinal avec rappels gratuits SMS et WhatsApp.",
-    href: "#",
+    href: "https://sheloa.joinweheal.com/",
+    image: "/images/Sheloa.png",
     accent: "from-emerald-100/80 via-cream to-cream",
     glow: "rgba(120,180,140,0.3)",
     badgeClass: "bg-emerald-100/80 text-emerald-800",
-    mockupVariant: "health" as const,
   },
   {
     id: "nufrika",
