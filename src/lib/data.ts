@@ -222,6 +222,18 @@ export const deliveryFeatures = [
 
 export const WHATSAPP_URL = "https://wa.me/qr/DKOCWSBP6NHTD1";
 
+/** Lien WhatsApp par produit (pret pour un numero wa.me classique). */
+export function buildWhatsAppOrderUrl(productName: string): string {
+  const message = encodeURIComponent(
+    `Bonjour Marbella Delice, je souhaite commander : ${productName}`
+  );
+  if (WHATSAPP_URL.includes("/qr/")) {
+    return WHATSAPP_URL;
+  }
+  const joiner = WHATSAPP_URL.includes("?") ? "&" : "?";
+  return `${WHATSAPP_URL}${joiner}text=${message}`;
+}
+
 export const MAPS_URL = "https://maps.app.goo.gl/zZgtvAb3njRc7qbu7";
 
 export const contactInfo = {

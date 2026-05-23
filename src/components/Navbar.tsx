@@ -3,31 +3,60 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "@phosphor-icons/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { navLinks } from "@/lib/data";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
+const SCROLL_THRESHOLD = 32;
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navLinkClass = scrolled
+    ? "text-warm-gray hover:text-charcoal dark:hover:text-cream"
+    : "text-charcoal/90 hover:text-charcoal dark:text-cream/90 dark:hover:text-cream";
+
+  const menuBarClass = scrolled
+    ? "bg-charcoal dark:bg-cream"
+    : "bg-charcoal dark:bg-cream";
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-40 flex justify-center px-4 pt-5 md:px-6">
-        <nav className="liquid-glass flex w-full max-w-4xl items-center justify-between gap-3 rounded-full px-4 py-2.5 md:px-5">
+        <motion.nav
+          className={`flex w-full max-w-4xl items-center justify-between gap-3 rounded-full px-4 py-2.5 transition-[background,border-color,box-shadow,backdrop-filter] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] md:px-5 ${
+            scrolled ? "navbar-surface-scrolled" : "navbar-surface-top"
+          }`}
+          initial={false}
+          animate={{
+            y: scrolled ? 0 : 0,
+          }}
+        >
           <BrandLogo
             variant="nav"
             priority
             onClick={() => setOpen(false)}
           />
 
-          <ul className="hidden items-center gap-6 lg:gap-7 md:flex">
+          <ul className="hidden items-center gap-6 md:flex lg:gap-7">
             {navLinks.slice(1, 5).map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-warm-gray transition-colors duration-300 hover:text-charcoal"
+                  className={`text-sm transition-colors duration-300 ${navLinkClass}`}
                 >
                   {link.label}
                 </Link>
@@ -46,36 +75,42 @@ export function Navbar() {
             <ThemeToggle />
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/5 dark:bg-white/10"
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-500 ${
+                scrolled
+                  ? "bg-charcoal/5 dark:bg-white/10"
+                  : "bg-charcoal/8 dark:bg-white/12"
+              }`}
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={open}
             >
               <span className="relative h-5 w-5">
                 <motion.span
-                  className="absolute left-0 top-1 h-0.5 w-5 rounded-full bg-charcoal"
+                  className={`absolute left-0 top-1 h-0.5 w-5 rounded-full ${menuBarClass}`}
                   animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                   transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 />
                 <motion.span
-                  className="absolute left-0 top-[9px] h-0.5 w-5 rounded-full bg-charcoal"
-                  animate={open ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+                  className={`absolute left-0 top-[9px] h-0.5 w-5 rounded-full ${menuBarClass}`}
+                  animate={
+                    open ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
+                  }
                 />
                 <motion.span
-                  className="absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-charcoal"
+                  className={`absolute left-0 top-[14px] h-0.5 w-5 rounded-full ${menuBarClass}`}
                   animate={open ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
                   transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 />
               </span>
             </button>
           </div>
-        </nav>
+        </motion.nav>
       </header>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 flex flex-col bg-cream/95 px-6 pt-28 backdrop-blur-3xl dark:bg-charcoal/95 md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-cream/95 px-6 pt-28 backdrop-blur-3xl dark:bg-chocolate/95 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
